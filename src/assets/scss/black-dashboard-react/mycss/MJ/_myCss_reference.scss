@@ -1,0 +1,115 @@
+.ref_wrapper {
+    height: calc(100vh - 150px);
+
+    span {
+    .ref_click {
+        background-color: white;
+        color : black;
+    }
+    button{
+        margin-left: 1em;
+        padding: 0.5em;
+        background: transparent;
+        border: solid 1px white;
+        color: white;
+    }
+    button:hover{
+        background-color: white;
+        color:black;
+    }
+    }
+}
+
+
+// .ref_toast {
+//     background-color: white;
+// }
+
+.ref_body{  
+
+    overflow: auto;
+    // column-width:400px;    
+   
+}
+
+.my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -30px; /* gutter size offset */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 30px; /* gutter size */
+    background-clip: padding-box;
+  }
+
+.ref_card {
+    
+    display: relative;
+    margin-bottom: 2.5em;
+    padding: 1em;
+    width: 25em;
+    border-radius: 5px;
+    background-color: white;
+
+    .ref_card_removeBtn{
+        display: inline-block;
+        right: 0;
+    }
+
+    .ref_card_header{
+
+        
+        border-bottom: solid 1px black;
+        padding: 0.5em;
+    }
+    .ref_card_body{
+        padding-top: 1em;
+
+        strong{
+            font-weight: bold;
+        }
+
+        ul{
+            list-style: none;
+            padding-left: 0;
+            
+            li{
+                color:black;
+                line-height: 2em;
+                margin-bottom: 0.5em;
+
+                a {
+                    color: black;
+                }
+
+                div {
+                    font-size: 0.9em;
+                }
+            }
+        
+        }   
+    
+    }
+
+    
+}
+
+
+.ref_plus {
+    background-color:white;
+    width:1em;
+    height:1em;
+    border-radius:0.5em;
+    text-align:center;
+    margin:0 auto;
+    font-size:3em;
+    font-weight: bold;
+    vertical-align:middle;
+    line-height:0.9em;
+    
+}
+
+
+  

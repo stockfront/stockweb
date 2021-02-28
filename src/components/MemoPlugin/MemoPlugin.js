@@ -3,12 +3,14 @@ import NewWindow from 'react-new-window';
 import {StockMemo} from './StockMemo';
 import {ThemeMemo} from './ThemeMemo';
 import AddNewsBtn from './AddNewsBtn';
+import NewsMemo from './NewsMemo';
 
 function MemoPlugin(props) {
 
     
     const [isWindowOpen, setIsWindowOpen] = useState(false)
-    const [data,setData] = useState([{"stockmemo":"","themememo":"","reg_date":""}]
+    const [data,setData] = useState([{"stockmemo":"","themememo":"","reg_date":"","newsmemo":[{"newslink":"",
+            "newstitle":""}]}]
     )
 
     const [page,setPage] = useState(0)
@@ -29,8 +31,8 @@ function MemoPlugin(props) {
        
         fetch(url,{method:"GET"})
         .then(res => res.json()) 
-        .then(result => {  
-            
+        .then(result => { 
+            console.log(result)
             setData(result);
         })        
 
@@ -73,20 +75,14 @@ function MemoPlugin(props) {
                                 <fieldset>
                                     <legend>메모장</legend>
                                     <StockMemo memo={data[0].stockmemo} date={data[0].reg_date}/>                        
-                                </fieldset>
-                           
-                                {/* <fieldset>
-                                    <legend>테마 메모장</legend>
-                                    <ThemeMemo memo={data[0].themememo} date={data[0].reg_date}/>
-                                 
-                                </fieldset> */}
+                                </fieldset>                          
                                 <fieldset>
                                     <legend>뉴스</legend>
-                                    <a href="www.naver.com" target="_blank">네이버 뉴스</a>
+                                    <NewsMemo news={data[0].newsmemo}/>
                                     {/* <AddNewsBtn/> */}
-                                    <button onClick={()=>{
+                                    {/* <button onClick={()=>{
                                         alert("실행!")
-                                    }}>추가</button>
+                                    }}>추가</button> */}
                                 </fieldset>
                            <div className="memo_footer">
                                {getPagination()}

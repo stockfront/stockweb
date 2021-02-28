@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import {GetList,EditTheme} from './GetList'
 import insert_icon from './add_insert_plus_icon_149546.png'
-import _default from 'node-sass-package-importer';
 
 function Get(props){
     const [data, setData] = useState([]);

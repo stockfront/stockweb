@@ -2,6 +2,7 @@ import {StockInfo} from "./views/StockInfo/StockInfo"
 import {News} from "./views/News/News"
 import {Stats1} from "./views/Stats/Stats1/Stats1"
 import {Stats2} from "./views/Stats/Stats2"
+import ThemeWrapper from "./views/ThemeRate/ThemeWrapper"
 import {Reference} from "./views/Reference/Reference"
 import {Manage} from "./views/Manage/Manage"
 
@@ -32,10 +33,16 @@ const routes = [
         layout: "/main"
     },
     {
+        path:"/themeRate",
+        name:"ThemeRate",
+        component:ThemeWrapper,
+        layout:"/main"
+    },
+    {
         path:"/reference",
         name:"Reference",
         component: Reference,
-        layout:"/reference"
+        layout:"/main"
     },
     {
         path: "/manage",

@@ -7,20 +7,8 @@ import {
     CardHeader,
     CardBody,
     CardTitle,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    UncontrolledDropdown,
-    Label,
-    FormGroup,
-    Input,
-    Table,
     Row,
     Col,
-    UncontrolledTooltip,
-    Toast,
-    ToastHeader,
-    ToastBody,
     Nav,
     NavItem,
     NavLink,
@@ -32,7 +20,7 @@ import {
 import { Line } from "react-chartjs-2";
 
 import { chartExample1 } from "../../variables/charts";
-import {StockTable, ThemeTable} from "./StockList";
+import { StockTable, ThemeTable } from "./StockList";
 import { NewsTab } from "./StockTab";
 import ThemeTab from "./StockTab";
 
@@ -57,7 +45,7 @@ function StockInfo(props) {
                     <Card className="card-table">
                         <CardHeader tag="h2">STOCK LIST</CardHeader>
                         <CardBody>
-                            <StockTable stockNameHandler = {stockNameHandler} />
+                            <StockTable stockNameHandler={stockNameHandler} />
                         </CardBody>
                     </Card>
                 </Col>
@@ -66,7 +54,7 @@ function StockInfo(props) {
                     <Card className="card-table">
                         <CardHeader tag="h2">THEMA LIST</CardHeader>
                         <CardBody>
-                            <ThemeTable stockNameHandler = {stockNameHandler} />
+                            <ThemeTable stockNameHandler={stockNameHandler} />
                         </CardBody>
                     </Card>
                 </Col>
@@ -99,14 +87,14 @@ function StockInfo(props) {
                                 <TabPane tabId="1">
                                     <Row>
                                         <Col sm="12">
-                                          <ThemeTab stockName = {stockName}/>
+                                            <ThemeTab stockName={stockName} />
                                         </Col>
                                     </Row>
                                 </TabPane>
                                 <TabPane tabId="2">
                                     <Row>
                                         <Col sm="12">
-                                            <NewsTab stockName = {stockName} />
+                                            <NewsTab stockName={stockName} />
                                         </Col>
                                     </Row>
                                 </TabPane>

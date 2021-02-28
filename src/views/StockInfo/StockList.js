@@ -10,13 +10,13 @@ function StockTable(props) {
     useEffect(() => {
 	
 
-        //let today = new Date()
-       // let year = today.getFullYear(); 
-       // let mon = String(today.getMonth()+1).length <2 ? "0"+String(today.getMonth()+1) : String(today.getMonth()+1)
-        //let day = String(today.getDate()).length <2 ? "0"+String(today.getDate()) : String(today.getDate())
-        //let date = year+"-"+mon+"-"+day
+        let today = new Date()
+       let year = today.getFullYear(); 
+       let mon = String(today.getMonth()+1).length <2 ? "0"+String(today.getMonth()+1) : String(today.getMonth()+1)
+        let day = String(today.getDate()).length <2 ? "0"+String(today.getDate()) : String(today.getDate())
+        let date = year+"-"+mon+"-"+day
 
-        fetch("http://localhost:8080/stockname?date=2021-02-19	")
+        fetch("http://localhost:8080/stockname?date="+date)
         .then(res => res.json())
         .then(result => {	
             setData({
@@ -86,7 +86,7 @@ function ThemeTable(props) {
         let day = String(today.getDate()).length <2 ? "0"+String(today.getDate()) : String(today.getDate())
         let date = year+"-"+mon+"-"+day
         
-        fetch("http://localhost:8080/getthemeinfo?date=2021-02-19")
+        fetch("http://localhost:8080/getthemeinfo?date="+date)
         .then(res => res.json())
         .then(result => {
             setData({

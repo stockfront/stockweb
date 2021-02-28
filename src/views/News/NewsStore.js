@@ -3,6 +3,8 @@ import { Pagination, PaginationItem, PaginationLink, Table } from 'reactstrap';
 import checkIcon from './iconmonstr-plus-thin-16.png';
 import removeIcon from './iconmonstr-minus-thin-16.png';
 
+import NewsAddBtn from './NewsAddBtn';
+
 
 function NewsStore(props) {
 
@@ -19,15 +21,15 @@ function NewsStore(props) {
 
     },[props.selectedList])
 
-    const addHandler = (e) => {       
+    const tabAddHandler = (e) => {       
         
         let body = {
-            "stockName" : e.target.parentNode.parentNode.parentNode.childNodes[0].innerHTML,
-            "newsTitle" : e.target.parentNode.parentNode.parentNode.childNodes[1].childNodes[0].text,
-            "newsLink" : e.target.parentNode.parentNode.parentNode.childNodes[1].childNodes[0].href
+            "stockName" : e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerHTML,
+            "newsTitle" :  e.target.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[0].text,
+            "newsLink" : e.target.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[0].href
         }
 
-        fetch("http://localhost:8080/addstorednews",
+        fetch("http://localhost:8080/tabAddStoredNews",
         {
         method:'POST',
         headers:{"Content-Type":"application/json;charset=utf-8"},
@@ -35,6 +37,23 @@ function NewsStore(props) {
         }).then(res => res.json())
         .then(result => {alert(result)})
 
+    }
+    
+    const memoAddHandler = (e) => {
+
+        let body = {
+            "newsTitle" : e.target.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[0].text,
+            "newsLink" : e.target.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[0].href,
+            "day" : e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerHTML
+        }
+
+        fetch("http://localhost:8080/memoAddStoredNews",
+        {
+        method:'POST',
+        headers:{"Content-Type":"application/json;charset=utf-8"},
+        body:JSON.stringify(body)
+        }).then(res => res.json())
+        .then(result => alert(result))
     }
 
     const deleteHandler = (e) => {
@@ -64,7 +83,7 @@ function NewsStore(props) {
                 <td className="testcolor">{value['stockName']}</td>
                 <td><a href={value['newsLink']} target="_blank">{value['newsTitle']}</a></td>
                 <td>{value['reg_date']}</td>
-                <td><div onClick={addHandler}><img src={checkIcon}/></div></td>
+                <td><NewsAddBtn tabAddHandler={tabAddHandler} memoAddHandler={memoAddHandler}/></td>
                 <td><div onClick={deleteHandler}><img src={removeIcon}/></div></td>
             </tr>
             )) 
@@ -78,12 +97,12 @@ function NewsStore(props) {
                     <tr>
                         <th>분류</th>
                         <th>뉴스</th>
-                        <th>일자</th>
+                        <th>일자</th>                       
                         
                     </tr>
                 </thead>
                 <tbody>
-                  {getList(data)}               
+                  {getList(data)}
                 </tbody>
             </Table>
         </div>

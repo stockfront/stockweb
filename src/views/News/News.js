@@ -1,38 +1,8 @@
 import React, { useState } from "react";
 import {
-    Button,
-    ButtonGroup,
     Card,
-    CardHeader,
-    CardBody,
-    CardTitle,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    UncontrolledDropdown,
-    Label,
-    FormGroup,
-    Input,
-    Table,
     Row,
     Col,
-    UncontrolledTooltip,
-    Toast,
-    ToastHeader,
-    ToastBody,
-    Nav,
-    NavItem,
-    NavLink,
-    TabContent,
-    TabPane,
-    CardText,
-    Pagination,
-    PaginationItem,
-    PaginationLink,
-    ListGroup,
-    ListGroupItem,
-    Badge,
-    Container
 } from "reactstrap";
 
 import StockNameList from './StockNameList';
@@ -69,7 +39,7 @@ function News(props) {
             "stockName": stockName ,
             "newsTitle": targetTag.text,
             "newsLink": targetTag.href,
-            "selectedDay": "2021-02-10"}
+            "selectedDay": day}
 
         fetch("http://localhost:8080/newslistadd", { 
             method:"POST",
@@ -80,14 +50,6 @@ function News(props) {
             .then(() => {setSelectedList(body)}) //DB 데이터 저장
 
         
-    }
-
-    const moveNextDayHandler = (e) => {
-        alert("날짜 앞")
-    }
-
-    const movePreviousDayHandler = (e) => {
-       alert("날짜 뒤")
     }
 
     return (
@@ -104,8 +66,7 @@ function News(props) {
                 <Col sm="3">
                     
                     <Card>
-                        <StockNameList stockNameHandler={stockNameHandler} day={day} moveNextDayHandler={moveNextDayHandler}
-                        movePreviousDayHandler = {movePreviousDayHandler}/>
+                        <StockNameList stockNameHandler={stockNameHandler} day={day}/>
                     </Card>
 
                 </Col>

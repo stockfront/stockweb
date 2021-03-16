@@ -8,11 +8,11 @@ function ThemeChart(props){
     let chartData = []
   
     useEffect(() => {
-        const eventSource = new EventSource('http://localhost:8080/toptheme')
-        eventSource.onmessage = event =>{
-            const tmp = JSON.parse(event.data);
-            setRawData(tmp)
-        }          
+        // const eventSource = new EventSource('http://localhost:8080/toptheme')
+        // eventSource.onmessage = event =>{
+        //     const tmp = JSON.parse(event.data);
+        //     setRawData(tmp)
+        // }          
     },[])
    
    

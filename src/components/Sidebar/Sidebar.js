@@ -30,14 +30,12 @@ function Sidebar(props) {
                         activeClassName="active"
                         onClick= {toggleSideBar}
                     >
-                        <p>{prop.name}</p>
-                    </NavLink>
+                    <p>{prop.name}</p>
+                    </NavLink>    
                 </li> 
             );
         }));
-
-
-
+        
     return (
         <BackgroundColorContext.Consumer>
             {({ color }) => (   

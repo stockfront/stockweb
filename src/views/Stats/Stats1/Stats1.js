@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {DailyVolume} from './DailyVolume';
-import {ThemeChart} from './ThemeCharts'
+// import {ThemeChart} from '../../StockInfo/HotTheme/ThemeCharts'
 import {   
     Row,
     Col  
@@ -18,11 +18,7 @@ export function Stats1(){
                 </Col>
             </Row>
 
-            <Row>
-                <Col sm="10">
-                   <ThemeChart/>
-                </Col>
-            </Row>
+
         </div>
 
     );

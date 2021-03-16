@@ -8,9 +8,9 @@ function DailyVolume(props){
 
     useEffect(()=>{
 
-        fetch("http://localhost:8080/getdailyvolume",{method:"GET"})
-        .then(res => res.json())
-        .then(result => {console.log(data); SetData(result)})
+        // fetch("http://localhost:8080/getdailyvolume",{method:"GET"})
+        // .then(res => res.json())
+        // .then(result => {console.log(data); SetData(result)})
 
     },[])
 

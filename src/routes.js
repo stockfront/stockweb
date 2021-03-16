@@ -1,54 +1,57 @@
+// import {StockInfo} from "./views/StockInfo/StockInfo"
+import {WebMain} from "./views/Home/WebMain"
 import {StockInfo} from "./views/StockInfo/StockInfo"
-import {News} from "./views/News/News"
+import {CommunityWrapper} from "./views/community/CommunityWrapper"
 import {Stats1} from "./views/Stats/Stats1/Stats1"
-import {Stats2} from "./views/Stats/Stats2"
-import ThemeWrapper from "./views/ThemeRate/ThemeWrapper"
-import {Reference} from "./views/Reference/Reference"
+import {News} from "./views/News/News"
 import {Manage} from "./views/Manage/Manage"
+import {Reference} from "./views/Reference/Reference"
+
+
 
 const routes = [
     {
-        path: "/stockinfo",
-        name: "StockInfo",
-        component: StockInfo,
+        path: "",
+        name: "홈",
+        component: WebMain,
         layout: "/main"
     },
 
     {
-        path: "/news",
-        name: "News",
-        component: News,
-        layout: "/main"
+        path: "/stockinfo",
+        name: "종목정보",
+        component: StockInfo,
+        layout: "/stockinfo"
     },
     {
-        path: "/stats1",
-        name: "Stats1",
+        path: "/community",
+        name: "커뮤니티",
+        component: CommunityWrapper,
+        layout: "/community"
+    },
+    {
+        path: "/state",
+        name: "뇌피셜 지표",
         component: Stats1,
-        layout: "/main"
+        layout: "/state"
     },
     {
-        path: "/state2",
-        name: "Stats2",
-        component: Stats2,
-        layout: "/main"
+        path:"/news",
+        name:"뉴스",
+        component:News,
+        layout:"/news"
     },
     {
-        path:"/themeRate",
-        name:"ThemeRate",
-        component:ThemeWrapper,
-        layout:"/main"
-    },
-    {
-        path:"/reference",
-        name:"Reference",
-        component: Reference,
-        layout:"/main"
-    },
-    {
-        path: "/manage",
-        name: "Manage",
+        path:"/manage",
+        name:"관리자",
         component: Manage,
-        layout: "/main"
+        layout:"/manage"
+    },
+    {
+        path: "/ref",
+        name: "Ref",
+        component: Reference,
+        layout: "/ref"
     }
 ]
 

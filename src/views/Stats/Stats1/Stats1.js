@@ -19,8 +19,8 @@ export function Stats1(){
             </Row>
 
             <Row>
-                <Col sm="5">
-                   
+                <Col sm="10">
+                   <ThemeChart/>
                 </Col>
             </Row>
         </div>

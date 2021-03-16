@@ -22,9 +22,8 @@ function Sidebar(props) {
         routes.map((prop, key) => {
             // if(prop.redirect) return null;
             console.log("what is redirect " + prop.redirect);
-
             return(
-                <li key={key}>
+                <li className='inner' key={key}>
                     <NavLink
                         to={prop.layout + prop.path}
                         className="nav-link"
@@ -33,7 +32,7 @@ function Sidebar(props) {
                     >
                         <p>{prop.name}</p>
                     </NavLink>
-                </li>
+                </li> 
             );
         }));
 
@@ -41,13 +40,14 @@ function Sidebar(props) {
 
     return (
         <BackgroundColorContext.Consumer>
-            {({ color }) => (
-                <div className="sidebar" data={color}>
-                    <Nav>
-                        {getNav(routes)}
-                    </Nav>
-                </div>
-
+            {({ color }) => (   
+                <Nav className='navbar'>
+                    <div className='router-menu'>
+                        <ul className='inner-menu'>
+                            {getNav(routes)}
+                        </ul>
+                    </div>
+                </Nav>
             )}
         </BackgroundColorContext.Consumer>
     );

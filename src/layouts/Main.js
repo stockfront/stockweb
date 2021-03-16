@@ -2,7 +2,6 @@ import React from "react";
 import { BackgroundColorContext } from "../contexts/BackgroundColorContext";
 import Sidebar from "../components/Sidebar/Sidebar";
 import routes from '../routes';
-import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 import MemoPlugin from "../components/MemoPlugin/MemoPlugin";
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 function Main(props) {
@@ -38,7 +37,7 @@ function Main(props) {
                             </Switch>
                         </div>
                     </div>
-                    <FixedPlugin bgColor={color} handleBgClick={changeColor} />
+                  
                     <MemoPlugin/>
                 </React.Fragment>
             )}

@@ -1,76 +1,59 @@
-import React, { useEffect, useState, useRef} from 'react';
-import { Line } from "react-chartjs-2";
-import { chartExample1 } from "../../variables/charts";
-
-
-const useOutsideClick = (ref, callback) => {
-    const handleClick = e => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        callback();
-      }
-    };
-  
-    useEffect(() => {
-      document.addEventListener("click", handleClick);
-  
-      return () => {
-        document.removeEventListener("click", handleClick);
-      };
-    });
-  };
-
+import React, { useEffect, useState, } from 'react'
+import { Table } from 'reactstrap'
 
 function ThemeRow(props) {
 
-    const [isClick,SetIsClick] = useState(false)
-    const [data,SetData] = useState("")
-    const ref = useRef();
-    // useEffect(()=>{
+  const [data, setData] = useState([{themename:"",themerate:""}])
+  const [to,setTo] = useState()
 
-    //     // Data를 한번 불러오고 유지하는 상태여도 메모리 문제가 없나..?
+  // Api 생성 후 작성해주기
+  useEffect(() => {
 
-    //     if(isClick && D){
-    //     fetch(url,{method:'GET'})
-    //     .then(res => res.json())
-    //     .then(result => SetData(result))
-    //     }
-    // },[isClick])
+    fetch("http://localhost:8080/themerate", { method: 'GET' })
+        .then(res => res.json())
+        .then(result => setData(result))
 
-    const onClickHandler = () =>{
+    setTimeout(() => {
+      fetch("http://localhost:8080/themerate", { method: 'GET' })
+        .then(res => res.json())
+        .then(result => setData(result))
+    }, 30000)
 
-        SetIsClick(!isClick)
-    }
+  },[])
 
-    // const blurHandler = () => {
-    //     console.log("kk")
-    // }
+  const getRows = (data) => {
 
-    useOutsideClick(ref,()=>{
-        SetIsClick(false)
-    } )
-    return (
-        <>
-            <tr onClick={onClickHandler} ref={ref}>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-            </tr>
-            {isClick &&
-            (<tr>
-                <td colSpan="7">
-                    <Line
-                        data={chartExample1["data1"]}
-                        options={chartExample1.options}>
-                    </Line>
-                </td>
-            </tr>)
-            }
-        </>
-    )
+    return (data.map((val, idx) => {
+      return (
+        <tr key={[val.themename,val.themerate]} onClick={props.rowClickHandler}>
+          <td>{val.themename}</td>
+          <td>{val.themerate}</td>     
+        </tr>
+      )
+    }))
+  }
+
+
+  return (
+
+    <Table className="themeWrapper" hover>
+      <thead>
+        <tr>
+          <th>테마</th>
+          <th>등락률</th>
+          {/* <th>상승</th>
+          <th>보합</th>
+          <th>하락</th>
+          <th>최고 상승</th>
+          <th>등락률</th> */}
+        </tr>
+      </thead>
+      <tbody>
+        {getRows(data)}
+      </tbody>
+    </Table>
+
+  )
 }
 
 export default ThemeRow;

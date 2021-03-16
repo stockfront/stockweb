@@ -23,11 +23,9 @@ let chart1_2_options = {
             color: "rgba(29,140,248,0.0)",
             zeroLineColor: "transparent",
           },
-          ticks: {
-            suggestedMin: 60,
-            suggestedMax: 125,
+          ticks: {           
             padding: 20,
-            fontColor: "#9a9a9a",
+            fontColor: "white",     
           },
         },
       ],
@@ -41,7 +39,9 @@ let chart1_2_options = {
           },
           ticks: {
             padding: 20,
-            fontColor: "#9a9a9a",
+            fontColor: "white",
+            maxTicksLimit: 15,
+            
           },
         },
       ],
@@ -57,10 +57,10 @@ let chart1_2_options = {
   
       let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
   
-      gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
-      gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
-      gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
-  
+      gradientStroke.addColorStop(1, "rgba(255,255,255,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(0,0,0,0.0)");
+      gradientStroke.addColorStop(0, "rgba(0,0,0,0)"); //blue colors
+
       return {
         labels: [
           "JAN",
@@ -76,7 +76,7 @@ let chart1_2_options = {
           "NOV",
           "DEC",
         ],
-        datasets: [
+        datasets: [                         
           {
             label: "My First dataset",
             fill: true,
